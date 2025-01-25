@@ -121,9 +121,28 @@ cat mydomain.crt mydomain.key > mydomain.pem
 4. Combine the certificate (`mydomain.crt`) and private key (`mydomain.key`) into a single `.pem` file:
 
    ```bash
-
    cat mydomain.crt mydomain.key > mydomain.pem
    ```
+
+### Optionally generate the pem  
+
+To create a PEM certificate bundle, copy certificates in reverse order, omitting the final SSL certificate:
+
+Root.crt is the root certificate
+
+Intermediate1.crt is the intermediate certificate 1
+
+Intermediate2.crt is the intermediate certificate 2
+
+My_certificate.crt is the final requested SSL certificate
+
+### Create a certificate bundle mychain.ca-bundle in Linux
+
+catIntermediate2.crt  Intermediate1.crt Root.crt > mychain.pem
+
+### Create a certificate bundle mychain.ca-bundle in Windows
+
+copyIntermediate2.crt +  Intermediate1.crt + Root.crt mychain.pem
 
 ### 5. Convert Between Formats
 
